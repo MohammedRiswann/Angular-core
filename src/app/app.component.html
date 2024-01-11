@@ -1,7 +1,15 @@
 <input type="text" name="" id="" #name />
-<app-software [variable]="value"></app-software>
+<app-software
+  [variable]="value"
+  [Child]="data"
+  (childButtonClick)="onChildClick()"
+  (sendData)="onSecondClick($event)"
+></app-software>
 
+<!-- basic event custom directive -->
 <button appCustom (click)="changeValue(name)">Change</button>
+<input type="text" placeholder="Hello World" (input)="onInput($event)" />
+
 {{ text | mypipe }}
 
 <h2>

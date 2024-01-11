@@ -5,9 +5,11 @@ import {
   AfterViewInit,
   Component,
   DoCheck,
+  EventEmitter,
   Input,
   OnChanges,
   OnInit,
+  Output,
   SimpleChanges,
   ViewChild,
 } from '@angular/core';
@@ -28,6 +30,17 @@ export class SoftwareComponent
     AfterViewChecked
 {
   @Input() variable!: string;
+  @Input() Child!: string;
+  @Output() childButtonClick = new EventEmitter<void>();
+  onChildClick() {
+    this.childButtonClick.emit();
+  }
+  @Output() sendData = new EventEmitter<string>();
+  data: string = 'hello output';
+  onSecondClick() {
+    this.sendData.emit(this.data);
+  }
+
   agee!: string;
   softwarePro: string = 'Hello Riswan';
   changedValue() {
@@ -61,4 +74,5 @@ export class SoftwareComponent
   ngAfterViewChecked(): void {
     console.log('after view checked');
   }
+  //custom event binding , child to parent by @output
 }

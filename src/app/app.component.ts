@@ -1,7 +1,9 @@
 import {
   AfterViewInit,
   Component,
+  EventEmitter,
   HostListener,
+  Output,
   ViewChild,
 } from '@angular/core';
 import { CartDetails } from './cart-details';
@@ -16,6 +18,9 @@ export class AppComponent implements AfterViewInit {
   title(title: any) {
     throw new Error('Method not implemented.');
   }
+  //input data
+
+  data: string = 'hello riswan';
 
   //view child
 
@@ -48,5 +53,21 @@ export class AppComponent implements AfterViewInit {
 
   triggerChildMethod() {
     this.SoftwareComponentref.changedValue();
+  }
+  //events
+
+  //passing event data
+  onInput(event: Event) {
+    const inValue = (event.target as HTMLInputElement).value;
+    console.log(inValue);
+  }
+
+  // @output method recieving data from child to parent
+
+  onChildClick(): void {
+    console.log('button clicked from the child');
+  }
+  onSecondClick(value: string) {
+    console.log(value);
   }
 }
