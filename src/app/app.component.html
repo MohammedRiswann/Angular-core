@@ -28,3 +28,10 @@
 </p>
 
 <button (click)="triggerChildMethod()">Trigger Child Method</button>
+
+<div>
+  <label for="">Dob :</label>
+  <input type="date" #dobInput (blur)="calculateDate()" />
+  <label for="">age : </label>
+  <input type="text" #ageInput />
+</div>

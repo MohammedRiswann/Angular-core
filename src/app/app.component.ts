@@ -1,6 +1,7 @@
 import {
   AfterViewInit,
   Component,
+  ElementRef,
   EventEmitter,
   HostListener,
   Output,
@@ -25,6 +26,16 @@ export class AppComponent implements AfterViewInit {
   //view child
 
   @ViewChild(SoftwareComponent) SoftwareComponentref!: SoftwareComponent;
+  @ViewChild('dobInput') dateOfBirth!: ElementRef;
+  @ViewChild('ageInput') age!: ElementRef;
+
+  calculateDate() {
+    // console.log(this.dateOfBirth.nativeElement.value);
+    let dateofb = new Date(this.dateOfBirth.nativeElement.value).getFullYear();
+    let cyear = new Date().getFullYear();
+    let tage = cyear - dateofb;
+    this.age.nativeElement.value = tage;
+  }
   ngAfterViewInit(): void {
     console.log(this.SoftwareComponentref);
   }
