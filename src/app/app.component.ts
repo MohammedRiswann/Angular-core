@@ -9,6 +9,7 @@ import {
 } from '@angular/core';
 import { CartDetails } from './cart-details';
 import { SoftwareComponent } from './software/software.component';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -26,6 +27,7 @@ export class AppComponent implements AfterViewInit {
   //view child
 
   @ViewChild(SoftwareComponent) SoftwareComponentref!: SoftwareComponent;
+
   @ViewChild('dobInput') dateOfBirth!: ElementRef;
   @ViewChild('ageInput') age!: ElementRef;
 
@@ -81,4 +83,20 @@ export class AppComponent implements AfterViewInit {
   onSecondClick(value: string) {
     console.log(value);
   }
+
+  //observables
+
+  myObservable = new Observable((observer) => {
+    observer.next('hello');
+    observer.complete();
+  });
+
+  subscribe = this.myObservable.subscribe({
+    next: (value) => {
+      console.log(value);
+    },
+    complete: () => {
+      console.log('completed');
+    },
+  });
 }
