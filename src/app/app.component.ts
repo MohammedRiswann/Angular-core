@@ -6,10 +6,11 @@ import {
   HostListener,
   Output,
   ViewChild,
+  OnInit,
 } from '@angular/core';
 import { CartDetails } from './cart-details';
 import { SoftwareComponent } from './software/software.component';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -20,6 +21,7 @@ export class AppComponent implements AfterViewInit {
   title(title: any) {
     throw new Error('Method not implemented.');
   }
+
   //input data
 
   data: string = 'hello riswan';
@@ -91,7 +93,7 @@ export class AppComponent implements AfterViewInit {
     observer.complete();
   });
 
-  subscribe = this.myObservable.subscribe({
+  subscribee = this.myObservable.subscribe({
     next: (value) => {
       console.log(value);
     },
@@ -99,4 +101,28 @@ export class AppComponent implements AfterViewInit {
       console.log('completed');
     },
   });
+
+  observ = new Observable((observer) => {
+    observer.next('mithlaj');
+    setInterval(() => {
+      observer.next('hello world');
+      // observer.complete();
+    }, 1000);
+  });
+
+  ngOnInit() {
+    this.observ.subscribe({
+      next(x) {
+        console.log(x);
+      },
+    });
+  }
+
+  // Logs:
+  // value: 1
+  // value: 4
+  // value: 9
+
+  //  subject = new Subject();
+  //   subject.subscribe(data => console.log("hello",data))
 }
