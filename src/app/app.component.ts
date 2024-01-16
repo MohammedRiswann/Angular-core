@@ -10,7 +10,17 @@ import {
 } from '@angular/core';
 import { CartDetails } from './cart-details';
 import { SoftwareComponent } from './software/software.component';
-import { Observable, Subject } from 'rxjs';
+import {
+  Observable,
+  Subject,
+  filter,
+  interval,
+  map,
+  of,
+  pipe,
+  switchMap,
+  take,
+} from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -102,20 +112,43 @@ export class AppComponent implements AfterViewInit {
     },
   });
 
-  observ = new Observable((observer) => {
-    observer.next('mithlaj');
-    setInterval(() => {
-      observer.next('hello world');
-      // observer.complete();
-    }, 1000);
-  });
+  // observ = new Observable((observer) => {
+  //   observer.next('mithlaj');
+  //   setInterval(() => {
+  //     observer.next('hello world');
+  //     observer.complete();
+  //   }, 1000);
+  //   observer.next('hai world'); //we can return or subscribe values asynchronously
+  // });
+
+  //operatrors : operations are called functions , 1 : pipeable operator which takes a observable and return a new modified observable.
+  //map,filter
 
   ngOnInit() {
-    this.observ.subscribe({
-      next(x) {
-        console.log(x);
-      },
-    });
+    // this.observ.subscribe({
+    //   next(x) {
+    //     console.log(x);
+    //   },
+    // });
+
+    // of(1, 2, 3)
+    //   .pipe(map((x) => x * x))
+    //   // .pipe(filter((x) => x % 2 == 0))
+    //   .subscribe((y) => console.log(y));
+
+    //switchMap()
+
+    const switchs = of('A', 'B', 'C');
+    switchs
+      .pipe(
+        switchMap((letter) =>
+          interval(1000).pipe(
+            take(3),
+            map((value) => letter + value)
+          )
+        )
+      )
+      .subscribe((x) => console.log(x));
   }
 
   // Logs:
