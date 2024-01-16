@@ -14,6 +14,7 @@ import {
   Observable,
   Subject,
   filter,
+  forkJoin,
   interval,
   map,
   of,
@@ -130,31 +131,33 @@ export class AppComponent implements AfterViewInit {
     //     console.log(x);
     //   },
     // });
-
-    // of(1, 2, 3)
-    //   .pipe(map((x) => x * x))
-    //   // .pipe(filter((x) => x % 2 == 0))
+    // const source = of(1, 2, 3);
+    // source
+    //   .pipe(
+    //     map((x) => x * x),
+    //     filter((x) => x % 2 == 0)
+    //   )
     //   .subscribe((y) => console.log(y));
-
-    //switchMap()
-
-    const switchs = of('A', 'B', 'C');
-    switchs
-      .pipe(
-        switchMap((letter) =>
-          interval(1000).pipe(
-            take(3),
-            map((value) => letter + value)
-          )
-        )
-      )
-      .subscribe((x) => console.log(x));
+    // switchMap
+    //   const switchs = of('A', 'B', 'C');
+    //   switchs
+    //     .pipe(
+    //       switchMap((letter) =>
+    //         interval(1000).pipe(
+    //           take(3),
+    //           map((value) => letter + value)
+    //         )
+    //       )
+    //     )
+    //     .subscribe((x) => console.log(x));
+    //forkjoin
+    // const obs1 = of('Shaheer is a fraud');
+    // const obs2 = of('Riswan is a good boy!');
+    // const obs3 = of('Sudais is kayappan');
+    // forkJoin([obs1, obs2, obs3]).subscribe((x) => {
+    //   console.log(x);
+    // });
   }
-
-  // Logs:
-  // value: 1
-  // value: 4
-  // value: 9
 
   //  subject = new Subject();
   //   subject.subscribe(data => console.log("hello",data))
