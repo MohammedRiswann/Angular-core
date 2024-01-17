@@ -8,6 +8,7 @@ import { MyCustomPipe } from './pipes/custom-pipe.pipe';
 import { cartTotal } from './pipes/cart.pipe';
 import { oneitem } from './pipes/oneitem.pipe';
 import { ServiceComponent } from './service/service.component';
+import { routers } from './routes/app.routes.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { ServiceComponent } from './service/service.component';
     oneitem,
     ServiceComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, routers],
   providers: [],
   bootstrap: [AppComponent],
 })
