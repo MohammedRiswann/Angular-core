@@ -1,13 +1,16 @@
 <input type="text" name="" id="" #name />
-<app-software
+<!-- <app-software
   [variable]="value"
   [Child]="data"
   (childButtonClick)="onChildClick()"
   (sendData)="onSecondClick($event)"
-></app-software>
+></app-software> -->
+
+<app-software></app-software>
+<app-service></app-service>
 
 <!-- basic event custom directive -->
-<button appCustom (click)="changeValue(name)">Change</button>
+<!-- <button appCustom (click)="changeValue(name)">Change</button>
 <input type="text" placeholder="Hello World" (input)="onInput($event)" />
 
 {{ text | mypipe }}
@@ -19,19 +22,21 @@
     <li>{{ items.quantity }}</li>
     <li>{{ items | cartOne }}</li>
   </ul>
-</h2>
-
+</h2> -->
+<!-- 
 <h1>Total Amount: {{ cartItems | carttotal }}</h1>
 
 <p *ngIf="SoftwareComponentref">
   Child Property in Parent: {{ SoftwareComponentref.softwarePro }}
 </p>
 
-<button (click)="triggerChildMethod()">Trigger Child Method</button>
+<button (click)="triggerChildMethod()">Trigger Child Method</button> -->
 
 <div>
   <label for="">Dob :</label>
   <input type="date" #dobInput (blur)="calculateDate()" />
   <label for="">age : </label>
   <input type="text" #ageInput />
+
+  <!-- <button (click)="onclick()">Click Here!</button> -->
 </div>

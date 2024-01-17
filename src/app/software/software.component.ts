@@ -46,9 +46,6 @@ export class SoftwareComponent
   changedValue() {
     this.softwarePro = 'Get out Riswan';
   }
-  constructor() {
-    console.log('constructor logged!');
-  }
 
   //life cycle hooks
   ngOnChanges(changes: SimpleChanges): void {
@@ -74,5 +71,4 @@ export class SoftwareComponent
   ngAfterViewChecked(): void {
     console.log('after view checked');
   }
-  //custom event binding , child to parent by @output
 }

@@ -7,6 +7,7 @@ import { appCustom } from './custom/custom.directive';
 import { MyCustomPipe } from './pipes/custom-pipe.pipe';
 import { cartTotal } from './pipes/cart.pipe';
 import { oneitem } from './pipes/oneitem.pipe';
+import { ServiceComponent } from './service/service.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { oneitem } from './pipes/oneitem.pipe';
     MyCustomPipe,
     cartTotal,
     oneitem,
+    ServiceComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
