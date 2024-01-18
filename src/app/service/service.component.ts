@@ -44,8 +44,8 @@ export class ServiceComponent implements OnInit {
     this.route.queryParams.subscribe((paramval) => {
       console.log(paramval);
 
-      // const yparamval = paramval['yourParamName'];
-      // console.log('parameter value : ', yparamval);
+      const yparamval = paramval['yourParamName'];
+      console.log('parameter value : ', yparamval);
     });
     // Example of navigating with query parameters
   }
@@ -58,6 +58,9 @@ export class ServiceComponent implements OnInit {
     });
   }
 
+  userDetails() {
+    this.router.navigate(['/user', '123']);
+  }
   navigateToYourRoute() {
     // Example of navigating with query parameters
     this.router.navigate(['/result/child'], {

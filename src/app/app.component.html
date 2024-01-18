@@ -32,12 +32,15 @@
 
 <button (click)="triggerChildMethod()">Trigger Child Method</button> -->
 
-<div>
+<!-- <div>
   <label for="">Dob :</label>
   <input type="date" #dobInput (blur)="calculateDate()" />
   <label for="">age : </label>
   <input type="text" #ageInput />
 
-  <!-- <button (click)="onclick()">Click Here!</button> -->
-</div>
+  <button (click)="onclick()">Click Here!</button> -->
+<!-- </div>  -->
+<a routerLink="/result">Home</a>
+<a routerLink="result/child">About</a>
+
 <router-outlet></router-outlet>
