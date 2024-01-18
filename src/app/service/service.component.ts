@@ -1,13 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { onClickservice } from '../services/function.service';
-
+import { ActivatedRoute, Router } from '@angular/router';
+import { routers } from '../routes/app.routes.module';
 @Component({
   selector: 'app-service',
   templateUrl: './service.component.html',
   styleUrls: ['./service.component.css'],
 })
 export class ServiceComponent implements OnInit {
-  constructor(private service: onClickservice) {}
+  constructor(
+    private service: onClickservice,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
   student: peoples[] = [];
 
   ngOnInit(): void {
@@ -35,6 +40,14 @@ export class ServiceComponent implements OnInit {
         salary: 11111,
       },
     ];
+
+    this.route.queryParams.subscribe((paramval) => {
+      console.log(paramval);
+
+      // const yparamval = paramval['yourParamName'];
+      // console.log('parameter value : ', yparamval);
+    });
+    // Example of navigating with query parameters
   }
 
   serviceButton() {
@@ -42,6 +55,13 @@ export class ServiceComponent implements OnInit {
 
     this.service.simpleSubject.subscribe({
       next: (value) => console.log(value),
+    });
+  }
+
+  navigateToYourRoute() {
+    // Example of navigating with query parameters
+    this.router.navigate(['/result/child'], {
+      queryParams: { aartkkan: 'kunnesh' },
     });
   }
 }

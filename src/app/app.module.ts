@@ -9,6 +9,7 @@ import { cartTotal } from './pipes/cart.pipe';
 import { oneitem } from './pipes/oneitem.pipe';
 import { ServiceComponent } from './service/service.component';
 import { routers } from './routes/app.routes.module';
+import { ChildComponentComponent } from './child-component/child-component.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { routers } from './routes/app.routes.module';
     cartTotal,
     oneitem,
     ServiceComponent,
+    ChildComponentComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, routers],
   providers: [],
