@@ -18,7 +18,7 @@
 <!-- Reactive form -->
 
 <!-- my-form.component.html -->
-<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+<!-- <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
   <label for="name">Name:</label>
   <input type="text" id="name" formControlName="name" />
   <div *ngIf="myForm.controls['name'].errors">name is required.</div>
@@ -27,4 +27,11 @@
   <div *ngIf="myForm.controls['email'].errors">Email is required.</div>
 
   <button type="submit" [disabled]="!myForm.valid">Submit</button>
-</form>
+</form> -->
+
+<!-- file upload -->
+
+<!-- <form action="" (ngSubmit)="submitted()">
+  <input type="file" name="" id="" (change)="changing($event)" />
+  <button type="submit">submit</button>
+</form> -->
