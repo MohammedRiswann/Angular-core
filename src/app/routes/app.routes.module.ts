@@ -5,6 +5,7 @@ import { ServiceComponent } from '../service/service.component';
 import { ChildComponentComponent } from '../child-component/child-component.component';
 import { pageNotFound } from '../pagenotfound/pagenot.component';
 import { userDetails } from '../user/user.component';
+import { Authguard } from '../Route guard/auth.guard';
 
 const routes: Routes = [
   {
@@ -13,6 +14,7 @@ const routes: Routes = [
   },
   {
     path: 'result',
+    canActivate: [Authguard],
     component: ServiceComponent,
     children: [
       {

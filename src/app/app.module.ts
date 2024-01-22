@@ -10,6 +10,8 @@ import { oneitem } from './pipes/oneitem.pipe';
 import { ServiceComponent } from './service/service.component';
 import { routers } from './routes/app.routes.module';
 import { ChildComponentComponent } from './child-component/child-component.component';
+import { FormComponent } from './form/form.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,8 +23,15 @@ import { ChildComponentComponent } from './child-component/child-component.compo
     oneitem,
     ServiceComponent,
     ChildComponentComponent,
+    FormComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, routers],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    routers,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
