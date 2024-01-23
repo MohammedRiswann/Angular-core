@@ -34,4 +34,29 @@
 <!-- <form action="" (ngSubmit)="submitted()">
   <input type="file" name="" id="" (change)="changing($event)" />
   <button type="submit">submit</button>
+
+  
 </form> -->
+
+<!-- update data -->
+
+<form
+  action=""
+  [formGroup]="datas"
+  style="display: flex; flex-direction: column"
+>
+  <input
+    type="text"
+    name="name"
+    id=""
+    placeholder="name"
+    formControlName="name"
+  />
+  <input type="text" name="age" id="" placeholder="age" formControlName="age" />
+  <input type="text" name="job" id="" placeholder="job" formControlName="job" />
+  <button type="button" (click)="updateFormData()">
+    Update with patchValue
+  </button>
+  <button type="button" (click)="setFormData()">Update with setValue</button>
+  <button type="submit" (click)="submitting()">submit</button>
+</form>

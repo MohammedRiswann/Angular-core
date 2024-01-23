@@ -12,6 +12,8 @@ import { routers } from './routes/app.routes.module';
 import { ChildComponentComponent } from './child-component/child-component.component';
 import { FormComponent } from './form/form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpComponent } from './http/http.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ServiceComponent,
     ChildComponentComponent,
     FormComponent,
+    HttpComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,6 +34,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     routers,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

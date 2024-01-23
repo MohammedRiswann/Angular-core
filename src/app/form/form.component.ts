@@ -35,30 +35,62 @@ export class FormComponent implements OnInit {
   //     }
   //   }
   // File upload
+  //   upload!: FormGroup;
+  //   constructor(private fb: FormBuilder) {}
+  //   ngOnInit() {
+  //     this.upload = this.fb.group({
+  //       File: [''],
+  //     });
+  //   }
+  //   changing(event: any) {
+  //     console.log(event.target.files[0]);
+  //     const files = event.target.files[0];
+  //     if (files) {
+  //       const fileName = files.name;
+  //       console.log(fileName);
+  //       const formData = new FormData();
+  //       formData.append('sudais image', files);
+  //       console.log(formData);
+  //       this.upload.patchValue({
+  //         file: files,
+  //       });
+  //     }
+  //     console.log(event);
+  //   }
+  //   submitted() {
+  //     console.log(this.upload);
+  //   }
 
-//   upload!: FormGroup;
-//   constructor(private fb: FormBuilder) {}
-//   ngOnInit() {
-//     this.upload = this.fb.group({
-//       File: [''],
-//     });
-//   }
-//   changing(event: any) {
-//     console.log(event.target.files[0]);
-//     const files = event.target.files[0];
-//     if (files) {
-//       const fileName = files.name;
-//       console.log(fileName);
-//       const formData = new FormData();
-//       formData.append('sudais image', files);
-//       console.log(formData);
-//       this.upload.patchValue({
-//         file: files,
-//       });
-//     }
-//     console.log(event);
-//   }
-//   submitted() {
-//     console.log(this.upload);
-//   }
-// }
+  datas!: FormGroup;
+  constructor(private data: FormBuilder) {}
+  ngOnInit() {
+    this.datas = this.data.group({
+      name: [''],
+      age: [''],
+      job: [''],
+    });
+  }
+  get f() {
+    return this.datas.controls;
+  }
+  submitting() {
+    console.log(this.datas);
+    console.log(this.datas.value);
+    console.log('sudais');
+  }
+  updateFormData() {
+    this.datas.patchValue({
+      name: 'mirshad',
+      age: 26,
+    });
+    console.log(this.datas.value);
+  }
+  setFormData() {
+    this.datas.setValue({
+      name: 'sudais',
+      age: 23,
+      job: 'developer',
+    });
+    console.log(this.datas.value);
+  }
+}
