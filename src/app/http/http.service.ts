@@ -27,4 +27,9 @@ export class httpmethods {
 
     return this.http.delete(url);
   }
+  patchData(id: any, updateddata: any) {
+    const url = `${this.api}/${id}`;
+
+    return this.http.patch(url, updateddata);
+  }
 }

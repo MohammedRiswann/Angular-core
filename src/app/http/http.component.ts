@@ -48,4 +48,13 @@ export class HttpComponent {
       console.log(value);
     });
   }
+  Onclickpatch() {
+    const id = 1;
+    const updatedData = {
+      body: 'updated!',
+    };
+    this.service.patchData(id, updatedData).subscribe((value) => {
+      console.log(value);
+    });
+  }
 }
