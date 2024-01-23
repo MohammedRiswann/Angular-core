@@ -12,4 +12,19 @@ export class httpmethods {
   createPost(postdata: any) {
     return this.http.post(this.api, postdata);
   }
+  updateData(userId: any, Id: any, title: any, body: any) {
+    console.log(Id);
+
+    const url = `${this.api}/${Id}`;
+    console.log(url);
+
+    const updatedData = { userId, Id, title, body };
+    return this.http.put(url, updatedData);
+  }
+  deleteData(id: any) {
+    const url = `${this.api}/${id}`;
+    console.log(url);
+
+    return this.http.delete(url);
+  }
 }
