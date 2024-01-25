@@ -14,6 +14,7 @@ import { Observable } from 'rxjs';
 })
 export class Authguard implements CanActivate {
   constructor(private router: Router) {}
+  // must be checked befor the next class
   canActivate():
     | Observable<boolean | UrlTree>
     | Promise<boolean | UrlTree>
